@@ -50,4 +50,12 @@ const protected = async (req, res) => {
         res.status(500).json({ message: "Internal Server Error", error: error.message });
     }
 }
-module.exports = { register, login, protected };
+const logout = async (req, res) => {
+    try {
+        res.clearCookie("accesstoken");
+        res.status(200).json({ message: "User logged out" });
+    } catch (error) {
+
+    }
+}
+module.exports = { register, login, protected, logout };
