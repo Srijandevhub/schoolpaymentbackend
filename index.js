@@ -7,7 +7,7 @@ const databaseConfig = require('./config/databaseConfig');
 const app = express();
 app.use(express.json());
 app.use(cors({ origin: "https://schoolpaymentclient.vercel.app", methods: ["POST", "GET", "PUT", "DELETE"], credentials: true }));
-app.use(cookieParser({ origin: "https://schoolpaymentclient.vercel.app" }));
+app.use(cookieParser());
 app.use("/auth", require('./routes/authRoutes'));
 app.use("/", require("./routes/paymentRoutes"));
 app.use("/", require('./routes/transactionRoutes'));
