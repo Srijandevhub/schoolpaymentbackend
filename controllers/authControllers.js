@@ -36,7 +36,7 @@ const login = async (req, res) => {
             email: userExits.email
         }
         const accessToken = generateToken(tokenPayload, process.env.JWT_SECRET, '1d');
-        res.cookie("accesstoken", accessToken, { httpOnly: true, maxAge: 24 * 60 * 60 * 1000, secure: true, sameSite: "Lax" });
+        res.cookie("accesstoken", accessToken, { httpOnly: true, maxAge: 24 * 60 * 60 * 1000, secure: true, sameSite: "None" });
         res.status(200).json({ ok: true, message: "User loggedin" });
     } catch (error) {
         res.status(500).json({ message: "Internal Server Error", error: error.message });
